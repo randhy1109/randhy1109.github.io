@@ -1,0 +1,43 @@
+.jumbotron {
+   
+    width: 100%;
+    padding: 100px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    color: white;
+    background-image: url(../jb.jpg);
+    max-width: 100%;
+    height: auto;
+    background-position: center;
+    background-size: cover;
+   
+}
+
+
+.jumbotron h2{
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    
+    
+}
+
+
+.about{
+    padding: 5px;
+    
+   
+}
+
+
+
+
+.thumbnail {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+    width: 225px;
+    margin: 10px;
+    float: left;
+}
+.thumbnail img {
+    width: 100%;
+}
