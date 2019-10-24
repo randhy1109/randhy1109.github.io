@@ -11,7 +11,22 @@ else
     { url: '/css/materialize.min.css', revision: '1' },
     { url: '/js/materialize.min.js', revision: '1' },
     { url: '/js/nav.js', revision: '1' },
+    
 ]);
+
+workbox.routing.registerRoute(
+  'https://private-044be-dicodingfootball.apiary-mock.com/api',
+  new workbox.strategies.NetworkFirst({
+    networkTimeoutSeconds: 3,
+    cacheName: 'fetch',
+    plugins: [
+      new workbox.expiration.Plugin({
+        maxEntries: 50,
+        maxAgeSeconds: 5 * 60, // 5 minutes
+      }),
+    ],
+})
+);
 
 
 workbox.routing.registerRoute(
@@ -20,26 +35,6 @@ workbox.routing.registerRoute(
     cacheName: 'pages',
   })
 );
-
-workbox.routing.registerRoute(
-'https://private-044be-dicodingfootball.apiary-mock.com/',
-new workbox.strategies.CacheFirst({
-  cacheName: 'fecth',
-  plugins: [
-    new workbox.expiration.Plugin({
-      maxEntries: 50,
-      maxAgeSeconds: 5 * 60, // 5 minutes
-    }),
-    new workbox.cacheableResponse.Plugin({
-      statuses: [0, 200],
-    }),
-  ],
-})
-
-);
-
-
-
 
 
 
