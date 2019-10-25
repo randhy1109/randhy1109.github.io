@@ -5,10 +5,10 @@ var base_url = "https://private-044be-dicodingfootball.apiary-mock.com/";
 var fetchApi = url => {
   return fetch(url, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    mode: 'no-cors', // no-cors, *cors, same-origin
+    mode: 'cors', // no-cors, *cors, same-origin
     cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
     credentials: 'same-origin', // include, *same-origin, omit
-    mode:'no-cors',
+    mode:'cors',
   headers: {
   'X-Auth-Token': "76eb4aa4cf384188be0ec90049edd0f6"
   },

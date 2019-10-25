@@ -15,18 +15,35 @@ else
 ]);
 
 workbox.routing.registerRoute(
-  'https://private-044be-dicodingfootball.apiary-mock.com/api',
-  new workbox.strategies.NetworkFirst({
-    networkTimeoutSeconds: 3,
-    cacheName: 'fetch',
-    plugins: [
-      new workbox.expiration.Plugin({
-        maxEntries: 50,
-        maxAgeSeconds: 5 * 60, // 5 minutes
-      }),
-    ],
-})
+  /\.(?:png|jpg|jpeg|svg|gif)$/,
+  new workbox.strategies.CacheFirst({
+    cacheName: 'my-image-cache',
+  })
 );
+
+workbox.routing.registerRoute(
+  new RegExp("https://private-044be-dicodingfootball.apiary-mock.com/"),
+  new workbox.strategies.NetworkFirst({
+    cacheName : 'fetch',
+    // fetchOptions: {
+    //   credentials: 'include',
+    // },
+  })
+);
+
+// workbox.routing.registerRoute(
+//   'https://private-044be-dicodingfootball.apiary-mock.com/api',
+//   new workbox.strategies.NetworkFirst({
+//     networkTimeoutSeconds: 3,
+//     cacheName: 'fetch',
+//     plugins: [
+//       new workbox.expiration.Plugin({
+//         maxEntries: 50,
+//         maxAgeSeconds: 5 * 60, // 5 minutes
+//       }),
+//     ],
+// })
+// );
 
 
 workbox.routing.registerRoute(
